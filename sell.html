@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sell | Guide Pharmacy</title>
+        <meta charset="UTF-8">
+
+        <style>
+            :root
+            {
+                --primary-color:rgb(4, 6, 46);
+                --secondary-color:rgb(255, 255, 255);
+                --third-color:rgba(14, 15, 15, 0.232);
+            }
+            *,body
+            {
+                margin: 0px;
+                padding: 0px;
+                overflow-x: hidden;
+                box-sizing: border-box;
+                overflow-y: auto;
+            }
+            body
+            {
+                
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                overflow: hidden;
+                height: 100vh;
+            }
+            
+            #sidebar
+            {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                text-decoration: none;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 30px;
+                width: 20%;
+                height: 100vh;
+                justify-content:space-around;
+                gap: 10px;
+                padding: 10px 20px;
+                background-color: var(--primary-color);
+                color: var(--primary-color);
+                border-right: solid var(--secondary-color) 1px;
+                overflow-y: hidden;
+            }
+            a
+            {
+                text-decoration: none;
+                color: var(--secondary-color);
+                text-align: center;
+                padding-bottom: 15px;
+                padding-top: 15px;
+                font-size: 15px;
+                transition: all 0.5s;
+            }
+            a:hover
+            {
+                background-color: var(--secondary-color);
+                color: var(--primary-color);
+            }
+            
+            p
+            {
+                font-size: 30px;
+                font-weight: 600;
+                color: var(--secondary-color);
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                border-bottom: 2px solid var(--secondary-color);
+            }
+            span
+            {
+                font-size: 10px;
+                font-weight: 200;
+                color: var(--secondary-color);
+                text-align: center;
+                margin-top: 5px;
+                margin-bottom: 20px;
+            }
+
+            #sales
+            {
+                width: 80%;
+                height: 100vh;
+                padding: 20px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                overflow-y: hidden;
+            }
+            .child
+            {
+                width: 49.5%;
+                border: 1px solid var(--primary-color);
+                height: 100%;
+            }
+
+            #head
+            {
+                height: 20%;
+                padding: 10px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            #searchbar,#customer,#pay
+            {
+                height: 25px;
+                padding: 1px 5px;
+            }
+            #cancel
+            {
+                padding: 6px 12px;
+                height: 40px;
+            }
+            
+            #list
+            {
+                background-color: var(--secondary-color);
+                height: 70%;
+            }
+            #footer
+            {
+                padding: 10px;
+                height: 10%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+            }
+            .buttons
+            {
+                padding: 5px 20px;
+            }
+            #sum
+            {
+                width: 150px;
+                height: 25px;
+                border: 1px solid var(--primary-color);
+                margin: 0px;
+                padding: 2px;
+            }
+            tr
+            {
+                text-align: center;
+                transition: all 0.5s;
+            }
+            th,td
+            {
+                scale: 0.8;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                padding: 0px;
+            }
+            table
+            {
+                border-collapse: collapse;
+                border: var(--third-color);
+            }
+            .highlight
+            {
+                background-color:red;
+            }
+            #addproducts
+            {
+                overflow-y: scroll;
+            }
+            #items
+            {
+                width: 100%;
+            }
+            .amount
+            {
+                color: var(--primary-color);
+                font-size: 20px;
+            }
+            #cancel
+            {
+                background-color: var(--primary-color);
+                color: var(--secondary-color);
+                font-weight: 700;
+                border-radius: 10px;
+                border: none;
+            }
+            #save
+            {
+                background-color: rgb(25, 178, 25);
+                border-radius: 10px;
+                border: none;
+            }
+            #printBtn
+            {
+                background-color: var(--primary-color);
+                color: var(--secondary-color);
+                border-radius: 10px;
+                border: none;
+            }
+            #printBtn:active
+            {
+                background-color:red;
+            }
+            #save:active
+            {
+                background-color: red;
+            }
+            #sum
+            {
+                background-color: var(--secondary-color);
+                color: var(--primary-color);
+                font-size: 15px;
+            }
+            td
+            {
+                text-align: center;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        
+        <nav id="sidebar">
+            <p>Guide Pharmacy <br> <span>🧑‍⚕️ Hello ,user !</span></p>
+            <a href="sell.html">🏷️ Sell</a>
+            <a href="buy.html">🛒 Buy</a>
+            <a href="suppliers.html">🚚 Suppliers</a>
+            <a href="stock.html">📦 Stock</a>
+            <a href="sales.html">📈 Sales</a>
+            <a href="purchase.html">💳 Purchase</a>
+            <a href="alerts.html">🚨 Alerts</a>
+            <a href="SecondPage.html">⚡ Quick Access Panel</a>
+            <a href="#" onclick="logout()">Logout ↩️</a>
+        </nav>
+        <div id="sales">
+            <div class="child" id="operations">
+                <div id="head">
+                    <input type="search" placeholder="🔍 search item by product id/name" id="searchbar">
+                    <input type="text" placeholder="Customer name" id="customer" name="cusname">
+                    <input type="text" placeholder="Cash/Credit" id="pay" name="payment">
+                    <button id="cancel">❌ Cancel Transaction</button>
+                </div>
+                <div id="list">
+                    <table id="items">
+                        <tr><th>Product ID</th><th>Product name</th><th>Price</th><th>Quantity</th><th class="amount">Amount</th></tr>
+                    </table>
+                </div>
+                <div id="footer">
+                    <button class="buttons" id="printBtn">Print</button>
+                    <button class="buttons" id="save">Save</button>
+                    <button class="buttons">Discount</button>
+                    <span id="sum"></span>
+                
+                </div>
+            </div>
+            
+            <div class="child" id="addprodcuts">
+                <table id="stockTable" border="1">
+                    <tr><th>Product_ID</th><th>Name</th><th>Expiry_Date</th><th>Price</th><th>Batch_No</th></tr>
+                </table>
+            </div>
+        </div>
+        
+
+        <script>
+            function logout() {
+            // Clear any stored login info (if you used localStorage/sessionStorage)
+            sessionStorage.clear();
+            localStorage.clear();
+
+            // Redirect back to login page
+            window.location.href = "phar_main.html";
+            }
+
+            async function loadProducts() {
+            const response = await fetch("http://localhost:8000/products");
+            const products = await response.json();
+
+            let table = document.getElementById("stockTable");
+            products.forEach(p => {
+                let row = `<tr><td>${p.product_id}</td><td>${p.name}</td><td>${p.expiry_date}</td><td>${p.price}</td><td>${p.batch_no}</td></tr>`;
+                table.innerHTML += row;
+            });
+            }
+            window.onload = loadProducts; // auto-load on page open
+
+            const searchBar = document.getElementById("searchbar");
+            const table = document.getElementById("stockTable");
+            const resultDiv = document.getElementById("list");
+            const productDetails = document.getElementById("items");
+
+            searchBar.addEventListener("keyup", function() {
+                const searchValue = this.value.toLowerCase();
+                const rows = Array.from(table.rows).slice(1); // skip header row
+
+                rows.forEach(row => row.classList.remove("highlight")); // clear old highlights
+
+                // Find matching rows
+                const matches = rows.filter(row => {
+                const product_id = row.cells[0].innerText.toLowerCase();
+                return product_id.includes(searchValue);
+                });
+
+                if (matches.length > 0) {
+                const match = matches[0];
+                match.classList.add("highlight");
+
+                // Move match to top (just after header)
+                table.insertRow(1).replaceWith(match);
+                }
+                
+                if (searchValue.trim() === "") {
+                rows.forEach(row => row.classList.remove("highlight"));
+                return; // stop here, table stays normal
+                }
+
+            
+
+            });
+
+            //the code in below is to add the products into sales bill
+            searchBar.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    const searchValue = this.value.toLowerCase();
+                    const rows = Array.from(table.rows).slice(1); // skip header row
+
+                    // Find exact match by Product ID
+                    const match = rows.find(row => row.cells[0].innerText.toLowerCase() === searchValue);
+
+                    if (match) {
+                    const productName = match.cells[1].innerText;
+                    const rawPrice = match.cells[3].innerText.trim();
+                    const productID = match.cells[0].innerText; 
+                    const priceMatch = rawPrice.match(/[\d.]+/);   // find first number
+                    const price = priceMatch ? parseFloat(priceMatch[0]) : 0;
+
+
+                    // Create a new product block
+                    const cartTable = document.getElementById("items");
+                    const newRow = cartTable.insertRow(-1); // append at end
+
+                    newRow.innerHTML = `
+                        <td><label>${productID}</label></td>
+                        <td>${productName}</td>
+                        <td><label>${price}</label></td>
+                        <td><input type="number" class="qtyInput" value="1" min="1" style="text-align:center; width:40px;"></td>
+                        <td><span class="amount">${price}</span></td>
+                    `;
+
+                    // Attach quantity change handler
+                    const qtyInput = newRow.querySelector(".qtyInput");
+                    const amountSpan = newRow.querySelector(".amount");
+
+                    qtyInput.addEventListener("input", function() {
+                        const qty = parseInt(this.value) || 1;
+                        const total = price * qty;
+                        amountSpan.innerText = total.toFixed(2);
+                    });
+
+                    // Append instead of replace
+                    productDetails.appendChild(productBlock);
+
+                    this.value = ""; // clear search bar
+                    } else {
+                    // ELSE PART: show error message if no product found
+                    const errorBlock = document.createElement("div");
+                    errorBlock.style.color = "red";
+                    errorBlock.innerText = "No product found for ID: " + searchValue;
+                    productDetails.appendChild(errorBlock);
+                    }
+                }
+                });
+
+                
+
+            document.getElementById("printBtn").addEventListener("click", function() {
+               
+
+                //the bug
+                let sum = 0;
+                const row = document.querySelectorAll("#items tr");
+
+                row.forEach((row, index) => {
+                const cells = row.querySelectorAll("td");
+                if (cells.length > 4) { // make sure the 5th column exists
+                    let amount = parseFloat(cells[4].innerText); // 5th column = index 4
+                    sum += isNaN(amount) ? 0 : amount;
+                }
+                });
+
+                document.getElementById("sum").innerText = sum;
+                const rows = document.querySelectorAll("#items tr");
+                rows.forEach((row, index) => {
+                    if (index === 0) return; // skip header row
+
+                    const productId = row.cells[0].innerText; // first cell must be product_id
+                    const qty = parseInt(row.querySelector(".qtyInput").value) || 1;
+                    const nameValue = document.getElementById("customer").value;
+                    const amountValue_raw = document.getElementById("sum").innerText;
+                    const amount_clean = amountValue_raw.replace("Rs: ","").trim(); // span text
+                    const amountValue = parseFloat(amount_clean);
+                    const paymentValue = document.getElementById("pay").value;
+
+                    // Send to backend to reduce stock
+                    fetch("/sell_product", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ product_id: productId, qty: qty,name: nameValue,amount: amountValue,payment: paymentValue})
+                    })
+
+                    .then(res => res.json())
+                    .then(data => console.log("Updated:", data))
+                    .catch(err => console.error("Error:", err));
+                });
+
+                
+                
+            let tableContent = document.getElementById("items").outerHTML;
+            
+            let now = new Date();
+            let dateString = now.toLocaleDateString();   // e.g. 22/07/2026
+            let timeString = now.toLocaleTimeString();   // e.g. 05:20 AM
+
+            // Desired popup size
+            let popupWidth = 600;
+            let popupHeight = 400;
+
+            // Center the popup
+            let left = (screen.width / 2) - (popupWidth / 2);
+            let top = (screen.height / 2) - (popupHeight / 2);
+
+            let printWindow = window.open(
+                "",
+                "_blank",
+                `width=${popupWidth},height=${popupHeight},top=${top},left=${left}`
+            );
+
+            printWindow.document.write("<html><head><title>Guide Pharmacy</title>");
+            printWindow.document.write(`
+                <style>
+                /* Force the page to fit printer paper */
+                @page {
+                    size: auto;   /* let the printer decide */
+                    margin: 2mm; /* adjust margins */
+                }
+
+                @media print {
+                    body {
+                    margin: 0; 
+                    font-family: "Courier New", monospace;
+                    font-size: 10pt;
+                    width: 80mm; /* typical thermal receipt width */
+                    }
+                    table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    }
+                    th, td {
+                    padding: 2px;
+                    text-align: center;
+                    }
+                }
+
+                body {
+                    text-align: center;
+                }
+                </style>
+            `);
+            printWindow.document.write("</head><body>");
+            printWindow.document.write("<h2>Guide Pharmacy<br>Bill</h2>");
+            printWindow.document.write("<p>----------------------</p>");
+            printWindow.document.write("<p>Date: " + dateString + " &nbsp; Time: " + timeString + "</p>");
+            printWindow.document.write("<p>To: " + document.getElementById("customer").value +"</p>");
+            printWindow.document.write("<p>Transaction method: " + document.getElementById("pay").value + "</p>")
+            printWindow.document.write(tableContent);
+            printWindow.document.write("<p>Total: " + document.getElementById("sum").innerText + "</p>");
+            printWindow.document.write("<p>Thank you <br> Come again!</p>");
+            printWindow.document.write("<p>----------------------</p>");
+            printWindow.document.write("</body></html>");
+            printWindow.document.close();
+
+            printWindow.print();
+
+            });
+
+            document.getElementById("save").addEventListener("click", function() {
+                
+
+                //the bug
+                let sum = 0;
+                const row = document.querySelectorAll("#items tr");
+
+                row.forEach((row, index) => {
+                const cells = row.querySelectorAll("td");
+                if (cells.length > 4) { // make sure the 5th column exists
+                    let amount = parseFloat(cells[4].innerText); // 5th column = index 4
+                    sum += isNaN(amount) ? 0 : amount;
+                }
+                });
+
+                document.getElementById("sum").innerText = "Rs: "+sum;
+                const rows = document.querySelectorAll("#items tr");
+                rows.forEach((row, index) => {
+                    if (index === 0) return; // skip header row
+
+                    const productId = row.cells[0].innerText; // first cell must be product_id
+                    const qty = parseInt(row.querySelector(".qtyInput").value) || 1;
+                    const nameValue = document.getElementById("customer").value;
+                    const amountValue = document.getElementById("sum").innerText; // span text
+                    const paymentValue = document.getElementById("pay").value;
+
+                    // Send to backend to reduce stock
+                    fetch("/sell_product", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ product_id: productId, qty: qty,name: nameValue,
+                        amount: amountValue,
+                        payment: paymentValue})
+                    })
+                    
+                    
+
+                    .then(res => res.json())
+                    .then(data => console.log("Updated:", data))
+                    .then(data => console.log("Response:", data))
+                    .catch(err => console.error("Error:", err));
+                });
+    
+            });
+
+            document.getElementById("cancel").addEventListener("click", function() {
+            const table = document.getElementById("items"); // your cart table
+            const rows = table.querySelectorAll("tr");
+
+            // remove all rows except header
+            rows.forEach((row, index) => {
+                if (index !== 0) {
+                    row.remove();
+                }
+            });
+
+            document.getElementById("sum").innerText="";
+            document.getElementById("customer").value="";
+            document.getElementById("pay").value="";
+
+            // optional: show a message
+            console.log("Transaction cancelled, table cleared.");
+        });
+
+        </script>
+
+    </body>
+</html>
