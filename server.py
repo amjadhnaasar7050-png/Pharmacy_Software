@@ -2,8 +2,10 @@ from flask import Flask,render_template, jsonify , request , redirect
 import mysql.connector
 from datetime import datetime,timedelta
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 import os
 
