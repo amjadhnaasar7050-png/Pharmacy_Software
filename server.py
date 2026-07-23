@@ -12,7 +12,7 @@ db = mysql.connector.connect(
     user=os.getenv("MYSQLUSER"),
     password=os.getenv("MYSQL_ROOT_PASSWORD"),
     database=os.getenv("MYSQL_DATABASE"),
-    port=int(os.getenv("MYSQLPORT", 3306))
+    port=int(os.getenv("MYSQLPORT", 32202))
 )
 
 
