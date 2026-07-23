@@ -1,4 +1,4 @@
-from flask import Flask,send_file, jsonify , request , redirect
+from flask import Flask,render_template, jsonify , request , redirect
 import mysql.connector
 from datetime import datetime,timedelta
 import os
@@ -25,43 +25,43 @@ cursor.execute("SET GLOBAL net_write_timeout = 1200")
 
 @app.route("/")
 def home():
-    return send_file("phar_main.html") 
+    return render_template("phar_main.html") 
 
 @app.route("/phar_main.html")
 def phar_main():
-    return send_file("phar_main.html")
+    return render_template("phar_main.html")
 
 @app.route("/stock.html")
 def stock():
-    return send_file("stock.html")
+    return render_template("stock.html")
 
 @app.route("/SecondPage.html")
 def SecondPage():
-    return send_file("SecondPage.html")
+    return render_template("SecondPage.html")
 
 @app.route("/suppliers.html")
 def suppliers():
-    return send_file("suppliers.html")
+    return render_template("suppliers.html")
 
 @app.route("/alerts.html")
 def alerts():
-    return send_file("alerts.html")
+    return render_template("alerts.html")
 
 @app.route("/sell.html")
 def sell():
-    return send_file("sell.html")
+    return render_template("sell.html")
 
 @app.route("/sales.html")
 def sales():
-    return send_file("sales.html")
+    return render_template("sales.html")
 
 @app.route("/purchase.html")
 def purchase():
-    return send_file("purchase.html")
+    return render_template("purchase.html")
 
 @app.route("/buy.html")
 def buy():
-    return send_file("buy.html")
+    return render_template("buy.html")
 
 #this is the route for getting products from database
 
