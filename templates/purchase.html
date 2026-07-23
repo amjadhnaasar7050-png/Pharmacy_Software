@@ -143,7 +143,7 @@
             }
 
             async function loadPurchase() {
-            const response1 = await fetch("http://localhost:8000/purchase");
+            const response1 = await fetch("https://pharmacy-software-kdbi.onrender.com/purchase");
             const purchase = await response1.json();
 
             let table = document.getElementById("purchase");

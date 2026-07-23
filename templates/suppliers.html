@@ -193,7 +193,7 @@
 
         <div id="side">
             <div id="crud">
-                <form action="/add_supplier" method="post">
+                <form action="https://pharmacy-software-kdbi.onrender.com/add_supplier" method="post">
                     <fieldset>
                         <legend>Add Supplier</legend>
                         <input type="text" name="sup_id" placeholder="Enter Supplier ID" class="form" required>
@@ -212,7 +212,7 @@
                         
                     </fieldset>
                 </form>
-                <form action="/delete_supplier" method="post">
+                <form action="https://pharmacy-software-kdbi.onrender.com/delete_supplier" method="post">
                     <fieldset>
                         <legend>Remove Supplier</legend>
                         <input type="text" name="sup_id" placeholder="Enter Supplier ID" class="form" required>
@@ -242,7 +242,7 @@
             }
 
             async function loadSuppliers() {
-            const response1 = await fetch("http://localhost:8000/suppliers");
+            const response1 = await fetch("https://pharmacy-software-kdbi.onrender.com/suppliers");
             const suppliers = await response1.json();
 
             let table = document.getElementById("stockTable");

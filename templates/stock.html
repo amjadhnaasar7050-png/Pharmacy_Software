@@ -191,7 +191,7 @@
 
         <div id="side">
             <div id="crud">
-                <form action="/add_product" method="post">
+                <form action="https://pharmacy-software-kdbi.onrender.com/add_product" method="post">
                     <fieldset>
                         <legend>Add product</legend>
                         <input type="text" name="product_id" placeholder="Enter product ID" class="form" required>
@@ -214,7 +214,7 @@
                         
                     </fieldset>
                 </form>
-                <form action="/delete_product" method="post">
+                <form action="https://pharmacy-software-kdbi.onrender.com/delete_product" method="post">
                     <fieldset>
                         <legend>Remove product</legend>
                         <input type="text" name="product_id" placeholder="Enter product ID" class="form" required>
@@ -245,7 +245,7 @@
             
 
             async function loadProducts() {
-            const response = await fetch("http://localhost:8000/products");
+            const response = await fetch("https://pharmacy-software-kdbi.onrender.com/products");
             const products = await response.json();
 
             let table = document.getElementById("stockTable");

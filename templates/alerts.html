@@ -238,7 +238,7 @@
             }
 
             window.onload = function() {
-            fetch("/alerts/data")
+            fetch("https://pharmacy-software-kdbi.onrender.com/alerts/data")
                 .then(res => res.json())   // get JSON instead of text
                 .then(alerts => {
                 let container = document.getElementById("alerts-container");
@@ -263,19 +263,19 @@
 
             // Event listeners
             document.getElementById("yellow").addEventListener("click", () => {
-                fetch("/alertsc?type=low")
+                fetch("https://pharmacy-software-kdbi.onrender.com/alertsc?type=low")
                 .then(res => res.json())
                 .then(alertsc => renderAlerts(alertsc));
             });
 
             document.getElementById("red").addEventListener("click", () => {
-                fetch("/alertsc?type=expiry")
+                fetch("https://pharmacy-software-kdbi.onrender.com/alertsc?type=expiry")
                 .then(res => res.json())
                 .then(alertsc => renderAlerts(alertsc));
             });
 
             document.getElementById("orange").addEventListener("click", () => {
-                fetch("/alertsc?type=all")
+                fetch("https://pharmacy-software-kdbi.onrender.com/alertsc?type=all")
                 .then(res => res.json())
                 .then(alertsc => renderAlerts(alertsc));
             });

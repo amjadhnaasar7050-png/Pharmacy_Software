@@ -280,7 +280,7 @@
             }
 
             async function loadProducts() {
-            const response = await fetch("http://localhost:8000/products");
+            const response = await fetch("https://pharmacy-software-kdbi.onrender.com/products");
             const products = await response.json();
 
             let table = document.getElementById("stockTable");
@@ -409,7 +409,7 @@
                     const paymentValue = document.getElementById("pay").value;
 
                     // Send to backend to reduce stock
-                    fetch("/sell_product", {
+                    fetch("https://pharmacy-software-kdbi.onrender.com/sell_product", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ product_id: productId, qty: qty,name: nameValue,amount: amountValue,payment: paymentValue})
@@ -517,7 +517,7 @@
                     const paymentValue = document.getElementById("pay").value;
 
                     // Send to backend to reduce stock
-                    fetch("/sell_product", {
+                    fetch("https://pharmacy-software-kdbi.onrender.com/sell_product", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ product_id: productId, qty: qty,name: nameValue,
