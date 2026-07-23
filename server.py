@@ -1,15 +1,20 @@
 from flask import Flask,send_file, jsonify , request , redirect
 import mysql.connector
 from datetime import datetime,timedelta
+import os
 
 app = Flask(__name__)
 
+import os
+
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="amjnaaB2004$&@",
-    database="Pharmacy"
+    host=os.getenv("MYSQLHOST"),
+    user=os.getenv("MYSQLUSER"),
+    password=os.getenv("MYSQL_ROOT_PASSWORD"),
+    database=os.getenv("MYSQL_DATABASE"),
+    port=int(os.getenv("MYSQLPORT", 3306))
 )
+
 
 cursor = db.cursor()
 
