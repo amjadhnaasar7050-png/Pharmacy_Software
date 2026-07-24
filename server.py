@@ -290,5 +290,4 @@ def sell_product():
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
 
-cursor.close()
-db.close()    
+    
