@@ -236,6 +236,8 @@ def sell_product():
     cursor.execute("UPDATE products SET stock = stock - %s WHERE product_id = %s", (qty, product_id))
     cursor.execute("SELECT stock FROM products WHERE product_id = %s", (product_id,))
     updated_stock = cursor.fetchone()
+    if updated_stock and updated_stock[0] <= 0:
+        cursor.execute("DELETE FROM products WHERE product_id = %s", (product_id,))
     conn.commit()
     cursor.close()
     conn.close()
