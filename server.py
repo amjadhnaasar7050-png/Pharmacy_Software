@@ -223,8 +223,8 @@ def sell_product():
     conn = get_db_connection()
     cursor = conn.cursor()
     data = request.get_json()
-    product_id = int(data.get("product_id"))
-    qty = int(data.get("qty"))
+    product_id = (data.get("product_id"))
+    qty = (data.get("qty"))
     name = data.get("name")
     amount = data.get("amount")
     payment = data.get("payment")
@@ -235,9 +235,9 @@ def sell_product():
     )
     cursor.execute("UPDATE products SET stock = stock - %s WHERE product_id = %s", (qty, product_id))
     cursor.execute("SELECT stock FROM products WHERE product_id = %s", (product_id,))
+
     updated_stock = cursor.fetchone()
-    if updated_stock and updated_stock[0] <= 0:
-        cursor.execute("DELETE FROM products WHERE product_id = %s", (product_id,))
+   
     conn.commit()
     cursor.close()
     conn.close()
